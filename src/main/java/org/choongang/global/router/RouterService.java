@@ -33,6 +33,7 @@ public class RouterService {
             // 요청 주소
             String requestUrl = req.getRequestURI();
             requestUrl = req.getQueryString() == null || req.getQueryString().isBlank() ? requestUrl : requestUrl + "?" + req.getQueryString();
+            //요청받은 주소가 null 그냥 요청받은 URL을 반환하고 아니면 URL+?+ 요청자가 검색한 문자열도 같이 붙여서 반환해줘라!
             req.setAttribute("requestUrl", requestUrl);
 
             // 요청 메서드
