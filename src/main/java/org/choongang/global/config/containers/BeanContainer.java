@@ -107,6 +107,7 @@ public class BeanContainer {
         return (T)beans.get(clazz.getName());
     }
 
+
     public void addBean(Object obj) {
 
         beans.put(obj.getClass().getName(), obj);

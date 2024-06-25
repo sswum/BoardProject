@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 /* 모든 메인 레이아웃 스타일은 여기서 만들면 된다 */
 /* 태그 기본 스타일 초기화 */
-{
-box-sizing: border-box;
- font-family: "Nanum Gothic", sans-serif;
- color: #000;
-     }
+* {
+    box-sizing: border-box;
+    font-family: "Nanum Gothic", sans-serif;
+    color: #000;
+}
 html {
     font-size: 13px; /* 1rem - 13px */
 }
