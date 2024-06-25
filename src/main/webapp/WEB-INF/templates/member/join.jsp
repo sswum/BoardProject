@@ -5,10 +5,12 @@
 <fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='회원가입' />
 <c:url var="actionUrl" value="/member/join" />
+
 <layout:main title="${pageTitle}">
 <section class="layout-width content-box">
 <h1>${pageTitle}</h1>
-<form name="frmJoin" method="POST" action="${actionUrl}" autocomplete="off">
+<form name="frmJoin" method="POST" action="${actionUrl}" autocomplete="off"
+target="ifrmProcess">
 <dl>
 <dt>
     <fmt:message key="이메일" />

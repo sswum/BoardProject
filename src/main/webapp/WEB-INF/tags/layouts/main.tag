@@ -14,7 +14,8 @@
 <layout:common title="${title}">
     <jsp:attribute name="header">
         <section class="site-top">
-            <div class="layout-width inner">
+            <div class=
+            "layout-width inner">
                 <div class="left">
                     <a href="${homeUrl}">
                         <i class="xi-home-o"></i>
@@ -53,11 +54,11 @@
         </section>
         <nav>
             <div class="layout-width inner">
-                <a href="#">메뉴1</a>
-                <a href="#">메뉴2</a>
-                <a href="#">메뉴3</a>
-                <a href="#">메뉴4</a>
-                <a href="#">메뉴5</a>
+                <a href="#">포켓몬 도감</a>
+                <a href="#">오늘의 투표</a>
+                <a href="#">자유게시판</a>
+                <a href="#">마이페이지</a>
+                <a href="#">사고팔기</a>
             </div>
         </nav>
     </jsp:attribute>

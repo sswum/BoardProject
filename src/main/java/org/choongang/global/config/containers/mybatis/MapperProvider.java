@@ -5,12 +5,13 @@ import org.choongang.global.config.annotations.mybatis.MapperScan;
 
 import java.util.Arrays;
 
-@MapperScan({"org.choongang.member.mapper"})
+@MapperScan({"org.choongang.member.mappers"})
 public class MapperProvider {
 
     public static MapperProvider instance;
 
-    private MapperProvider() {}
+    private MapperProvider() {
+    }
 
     public static MapperProvider getInstance() {
         if (instance == null) {
@@ -25,7 +26,7 @@ public class MapperProvider {
         boolean isMapper = Arrays.stream(mapperScan.value()).anyMatch(s -> s.startsWith(clz.getPackageName()));
 
         if (isMapper) {
-            return (T)DBConn.getSession().getMapper(clz);
+            return (T) DBConn.getSession().getMapper(clz);
         }
 
         return null;

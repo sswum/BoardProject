@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Service;
+import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
 
@@ -12,12 +13,10 @@ import org.choongang.member.validators.JoinValidator;
 @RequiredArgsConstructor
 public class JoinService {
     private final JoinValidator validator;
-    private final HttpServletRequest request;
-    private final HttpServletResponse response;
-    private final HttpSession session;
+
     private final MemberMapper mapper;
 
-    public void process() {
-        System.out.println(mapper);
+    public void process(RequestJoin form) {
+        validator.check(form);
     }
 }
