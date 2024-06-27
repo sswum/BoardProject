@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.cor" %>
-<c:if test="${! empty script}"> !-- 비어있지 않을 때 --!
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:if test="${! empty script}">
 <script>
 ${script}
 </script>

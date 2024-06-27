@@ -5,9 +5,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Service;
+import org.choongang.member.constants.UserType;
 import org.choongang.member.controllers.RequestJoin;
+import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
+import org.mindrot.jbcrypt.BCrypt;
 
 @Service
 @RequiredArgsConstructor
@@ -18,5 +21,21 @@ public class JoinService {
 
     public void process(RequestJoin form) {
         validator.check(form);
+
+        //비밀번호 해시화
+        String hash = BCrypt.hashpw(form.getPassword(), BCrypt.gensalt(12));
+        //요즘은 고정해서 요렇게 만듦.
+
+        //DB에 영구 저장 처리
+        Member member = Member.builder()
+                .email(form.getEmail())
+                .password(hash)
+                .userName(form.getUserName())
+                .userType(UserType.USER)
+                .build();
+
+        int result = mapper.register(member);
+
     }
 }
+

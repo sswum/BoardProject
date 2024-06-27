@@ -1,36 +1,37 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<fmt:setBundle basename="messages.commons" />
 <fmt:message var="pageTitle" key='로그인' />
-<c:url var="actionUrl"  value="/member/join" />
+<c:url var="actionUrl"  value="/member/login" />
 
-<layout:main title="로그인">
+<layout:main title="${pageTitle}">
 
-<section class="layout-width content-box">
-<h1>로그인 </h1>
+<div class="content-box small">
+<h1>${pageTitle}</h1>
 
-<form name="frmLogin" method="GET" action="${actionUrl}" autocomplete="off">
-<dl>
-<dt>
-    <fmt:message key="이메일" />
+<form name="frmLogin" method="POST" action="${actionUrl}" target="ifrmProcess" autocomplete="off">
 
-</dt>
-<dd>
-    <input type="text" name="email" placeholder="메일을 입력해주세요!">
-</dd>
-</dl>
+<c:if test="${! empty param.redirectUrl}">
+<input type="hidden" name="redirectUrl" value="${param.redirectUrl}">
+</c:if>
+    <input type="text" name="email" placeholder="<fmt:message key='이메일'/>">
 
-<dl>
-<dt>
-    <fmt:message key="비밀번호" />
-</dt>
+    <input type="password" name="password" placeholder="<fmt:message key='비밀번호'/>">
 
-<dd>
-    <input type="password" name="password" placeholder="비밀번호를 입력해주세요!">
+    <div class="save-email">
+    <input type="checkbox" name="saveEmail" value="true" id="saveEmail">
+    <label for="saveEmail">
+        <fmt:message key="이메일_기억하기" />
+        </label>
 
-<button type="submit"> 입력
+</div>
+
+<button type="submit">
+<fmt:message key="로그인" />
 </button>
 
 </form>
-</section>
+
 </layout:main>
